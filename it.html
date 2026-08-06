@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Portfolio | Sean Martin Del Rosario</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Smooth, hidden scrollbar for a seamless experience */
+        ::-webkit-scrollbar { display: none; }
+        body { -ms-overflow-style: none; scrollbar-width: none; background-color: #000; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        it: '#080c14',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-white antialiased cursor-default selection:bg-blue-500/30 overflow-x-hidden">
+
+    <!-- Highly Optimized Cursor Glow (Blue IT Theme) -->
+    <div id="cursor-glow" class="fixed top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none mix-blend-screen opacity-30 transition-colors duration-700 z-0 will-change-transform bg-[radial-gradient(circle,rgba(37,99,235,0.4)_0%,transparent_60%)]"></div>
+
+    <!-- Ambient IT Background Layer -->
+    <div class="fixed inset-0 w-full h-full z-0 pointer-events-none bg-it">
+        <!-- Static Blue Glows -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.12),transparent_50%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(37,99,235,0.08),transparent_50%)]"></div>
+        <!-- Subtle Premium Grid -->
+        <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px); background-size: 64px 64px;"></div>
+    </div>
+
+    <!-- Top Navigation -->
+    <nav class="fixed top-0 w-full px-8 md:px-16 py-8 flex justify-between items-center z-50 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards] backdrop-blur-md border-b border-white/5 bg-black/20">
+        <a href="index.html" class="font-bold text-sm md:text-base tracking-[0.2em] text-white hover:text-blue-400 transition-colors flex items-center gap-3 group">
+            <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> SMDR
+        </a>
+        <div class="hidden md:flex gap-8 text-xs font-bold text-gray-400 uppercase tracking-[0.2em]">
+            <a href="mailto:seanmdelrosrario@gmail.com" class="hover:text-white transition-colors flex items-center gap-2">
+                <i data-lucide="mail" class="w-4 h-4"></i> seanmdelrosrario@gmail.com
+            </a>
+            <span class="flex items-center gap-2 text-white">
+                <i data-lucide="phone" class="w-4 h-4 text-blue-400"></i> +63 976 436 2928
+            </span>
+        </div>
+    </nav>
+
+    <!-- Content Wrapper -->
+    <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center pt-32 pb-32">
+
+        <!-- 1. IT HERO HEADER -->
+        <header class="w-full px-6 py-20 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
+            <p class="text-blue-500 font-bold tracking-[0.4em] uppercase text-xs md:text-sm mb-6 border-l-2 border-blue-500 pl-4">IT Portfolio</p>
+            <h1 class="text-[10vw] md:text-[6vw] font-black tracking-tighter leading-[0.9] text-white">
+                Engineering <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-700">The Future.</span>
+            </h1>
+        </header>
+
+        <!-- Main Grid Layout -->
+        <div class="w-full px-6 grid lg:grid-cols-12 gap-12 lg:gap-20 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]">
+            
+            <!-- LEFT COLUMN: Education & Experience -->
+            <div class="lg:col-span-5 space-y-16">
+                
+                <!-- Education Section -->
+                <section>
+                    <h2 class="text-xs text-gray-500 font-bold uppercase tracking-[0.4em] mb-8 border-l-2 border-white/20 pl-4">Education</h2>
+                    
+                    <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/30 transition-colors duration-500 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[50px] rounded-full group-hover:bg-blue-500/20 transition-colors"></div>
+                        <h3 class="text-xl font-bold text-white mb-2">Batangas State University - Lipa Campus</h3>
+                        <p class="text-blue-400 font-medium text-sm mb-6">BS in Information Technology<br>Major in Business Analytics</p>
+                        <div class="flex items-center gap-4 text-xs text-gray-400 font-medium tracking-wide uppercase">
+                            <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3 text-gray-500"></i> Exp. July 2027</span>
+                            <span class="flex items-center gap-1"><i data-lucide="award" class="w-3 h-3 text-gray-500"></i> GWA: 1.83</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Experience Section -->
+                <section>
+                    <h2 class="text-xs text-gray-500 font-bold uppercase tracking-[0.4em] mb-8 border-l-2 border-white/20 pl-4">Experience</h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Scratch Solutions -->
+                        <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] border-l-4 border-l-blue-500 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-500 relative overflow-hidden group">
+                            <div class="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <i data-lucide="code-2" class="w-12 h-12 text-blue-500"></i>
+                            </div>
+                            <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Jul 2026 - Present</span>
+                            <h3 class="text-xl font-bold text-white">Software Developer</h3>
+                            <p class="text-blue-400 font-medium text-sm mb-6">SCRATCH SOLUTIONS INC</p>
+                            <ul class="space-y-4 text-sm text-gray-400 font-light leading-relaxed">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                                    Develops full-stack desktop application using Electron, Node.js, and JavaScript, delivering a centralized and user-friendly dashboard to streamline live-event operations.
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                                    Engineering seamless hardware-to-software integrations, connecting external micro-controllers and digital cameras to fully automate system workflows and physical user interactions.
+                                </li>
+                            </ul>
+                            <p class="mt-6 text-xs text-gray-500 font-mono tracking-tight">C++ • Python • Node.js • Arduino • JS • HTML/CSS</p>
+                        </div>
+
+                        <!-- Lipa City Gov -->
+                        <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/30 transition-all duration-500">
+                            <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Aug 2025</span>
+                            <h3 class="text-lg font-bold text-white">Admin Employee (SPES)</h3>
+                            <p class="text-gray-400 font-medium text-sm mb-4">Lipa City Government</p>
+                            <p class="text-sm text-gray-400 font-light leading-relaxed">
+                                Provided administrative support at the City Government of Lipa City, assisting both the Admin Office and Public Employment Service Office with document processing, records management, and client service coordination.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RIGHT COLUMN: Projects -->
+            <div class="lg:col-span-7 mt-16 lg:mt-0">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                    <h2 class="text-xs text-gray-500 font-bold uppercase tracking-[0.4em] border-l-2 border-white/20 pl-4">Featured Projects</h2>
+                    
+                    <!-- Filters -->
+                    <div class="flex flex-wrap gap-3" id="filter-container">
+                        <button class="filter-btn px-5 py-2 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 bg-blue-600 text-white border border-blue-500" data-filter="all">All</button>
+                        <button class="filter-btn px-5 py-2 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 bg-transparent text-gray-400 border border-white/10 hover:border-blue-500/50 hover:text-white" data-filter="web">Web/Mobile</button>
+                        <button class="filter-btn px-5 py-2 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 bg-transparent text-gray-400 border border-white/10 hover:border-blue-500/50 hover:text-white" data-filter="hardware">Hardware</button>
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid sm:grid-cols-2 gap-6" id="projects-grid">
+                    
+                    <!-- Shervice -->
+                    <div class="project-card bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 transition-all duration-500 group" data-category="web">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Shervice</h3>
+                            <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i data-lucide="smartphone" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">Dec 2026 • FrontEnd UI/UX</p>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-8">
+                            Spearheaded a data-driven transport management system to modernize fleet operations for GT Lantin Car Rentals. Designed the user interface and managed project workflows to monitor driver punctuality, manage fleet attendance records, and generate trend-based data analytics.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Flutter</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Node.js</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Python</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Supabase</span>
+                        </div>
+                    </div>
+
+                    <!-- Flik -->
+                    <div class="project-card bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 transition-all duration-500 group" data-category="hardware">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Flik-70s Photobooth</h3>
+                            <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i data-lucide="camera" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">Jul 2026 • Lead Developer</p>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-8">
+                            Engineered a 70s-inspired vintage photobooth from the ground up, integrating a custom Arduino-based hardware control layer for physical components. Built a streamlined, responsive operator dashboard using Electron to facilitate automated event management.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Arduino</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Electron</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">JS/HTML/CSS</span>
+                        </div>
+                    </div>
+
+                    <!-- ClearAir LIDAR -->
+                    <div class="project-card bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 transition-all duration-500 group" data-category="hardware">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">ClearAir Turbulence</h3>
+                            <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i data-lucide="plane" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">May 2026 • Sole Programmer</p>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-8">
+                            Programmed the entirety of a LIDAR-based avionics system, utilizing an Arduino Mega for precise laser backscatter analysis. Integrated a custom K-Nearest Neighbors (KNN) machine learning algorithm in C++ to classify atmospheric data and detect clear air turbulence.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">C++ / C</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Arduino Mega</span>
+                        </div>
+                    </div>
+
+                    <!-- Unitly -->
+                    <div class="project-card bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 transition-all duration-500 group" data-category="web">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Unitly</h3>
+                            <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i data-lucide="layout-dashboard" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">Dec 2025 • FrontEnd UI/UX</p>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-8">
+                            Designed the front-end UI/UX and managed project execution for a scalable multi-property management platform. Streamlined landlord-tenant communication by automating complex billing workflows and property tracking into a centralized web interface.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">PHP</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <!-- Radar Tower -->
+                    <div class="project-card bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 transition-all duration-500 group sm:col-span-2" data-category="hardware">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Sentry-360 Radar Tower</h3>
+                            <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i data-lucide="radar" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">Dec 2025 • Sole Programmer</p>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-8 max-w-3xl">
+                            Built a 360-degree radar sentry tower by solely writing the Arduino C++ data logging code and Processing 4 Java integration. Developed a real-time visual radar sweep interface to translate physical sensor data into actionable visual metrics.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">C</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Arduino Uno</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Processing 4</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // --- Custom Pointer Glow (Blue IT Theme) ---
+        const cursorGlow = document.getElementById('cursor-glow');
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let cursorX = mouseX;
+        let cursorY = mouseY;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.1;
+            cursorY += (mouseY - cursorY) * 0.1;
+            cursorGlow.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate3d(-50%, -50%, 0)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // --- Project Filtering Logic ---
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        const setActiveButton = (clickedBtn) => {
+            filterButtons.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-500');
+                btn.classList.add('bg-transparent', 'text-gray-400', 'border-white/10');
+            });
+            clickedBtn.classList.remove('bg-transparent', 'text-gray-400', 'border-white/10');
+            clickedBtn.classList.add('bg-blue-600', 'text-white', 'border-blue-500');
+        };
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                setActiveButton(button);
+                const filterValue = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    // Reset animation states before reflowing
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        // Force a reflow to restart CSS transitions
+                        void card.offsetWidth;
+                        card.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
