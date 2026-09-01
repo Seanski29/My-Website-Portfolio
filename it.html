@@ -6,21 +6,25 @@
     <title>IT Portfolio | Sean Martin Del Rosario</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/x-icon" href="assets/icon.jpg">
     <style>
-        /* Smooth, hidden scrollbar for a seamless experience */
         ::-webkit-scrollbar { display: none; }
-        body { -ms-overflow-style: none; scrollbar-width: none; background-color: #000; }
+        body { 
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
+            background-color: #09090b; /* zinc-950 */
+        }
     </style>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        it: '#080c14',
+                        zinc: { 950: '#09090b' },
                     },
                     keyframes: {
                         fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
@@ -29,60 +33,60 @@
         }
     </script>
 </head>
-<body class="text-white antialiased cursor-default selection:bg-blue-500/30 overflow-x-hidden">
+<body class="text-gray-300 antialiased selection:bg-blue-900/50 selection:text-white overflow-x-hidden font-sans relative">
 
-    <!-- Highly Optimized Cursor Glow (Blue IT Theme) -->
-    <div id="cursor-glow" class="fixed top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none mix-blend-screen opacity-30 transition-colors duration-700 z-0 will-change-transform bg-[radial-gradient(circle,rgba(37,99,235,0.4)_0%,transparent_60%)]"></div>
-
-    <!-- Ambient IT Background Layer -->
-    <div class="fixed inset-0 w-full h-full z-0 pointer-events-none bg-it">
-        <!-- Static Blue Glows -->
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.12),transparent_50%)]"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(37,99,235,0.08),transparent_50%)]"></div>
-        <!-- Subtle Premium Grid -->
-        <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px); background-size: 64px 64px;"></div>
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-800/5 rounded-full blur-[100px]"></div>
     </div>
 
-    <!-- Top Navigation -->
-    <nav class="fixed top-0 w-full px-8 md:px-16 py-8 flex justify-between items-center z-50 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards] backdrop-blur-md border-b border-white/5 bg-black/20">
-        <a href="index.html" class="font-bold text-sm md:text-base tracking-[0.2em] text-white hover:text-blue-400 transition-colors flex items-center gap-3 group">
-            <i data-lucide="arrow-left" class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> SMDR
-        </a>
-        <div class="hidden md:flex gap-8 text-xs font-bold text-gray-400 uppercase tracking-[0.2em]">
-            <a href="mailto:seanmdelrosrario@gmail.com" class="hover:text-white transition-colors flex items-center gap-2">
-                <i data-lucide="mail" class="w-4 h-4"></i> seanmdelrosrario@gmail.com
-            </a>
-            <span class="flex items-center gap-2 text-white">
-                <i data-lucide="phone" class="w-4 h-4 text-blue-400"></i> +63 976 436 2928
-            </span>
+    <div id="cursor-glow" class="fixed top-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none mix-blend-screen opacity-30 transition-colors duration-700 z-0 will-change-transform bg-[radial-gradient(circle,rgba(37,99,235,0.25)_0%,transparent_60%)]"></div>
+
+    <nav class="fixed top-0 w-full z-50 bg-zinc-950/70 backdrop-blur-lg border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-lg tracking-widest text-white hover:text-blue-500 transition-colors">SMDR.</a>
+            
+            <div class="hidden md:flex gap-8 items-center text-xs font-semibold uppercase tracking-widest">
+                <a href="index.html#about" class="hover:text-white transition-colors">About</a>
+                <a href="index.html#projects" class="hover:text-white transition-colors">Featured</a>
+                <div class="h-4 w-px bg-white/20"></div>
+                <a href="it.html" class="text-blue-500 flex items-center gap-1 cursor-default">IT</a>
+                <a href="media.html" class="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1">Media</a>
+                <button onclick="openModal()" class="text-white border border-white/20 px-4 py-2 rounded hover:bg-white/10 transition-colors ml-4 uppercase tracking-widest text-xs font-semibold">Contact</button>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-nav" class="hidden absolute top-full left-0 w-full bg-zinc-900/95 backdrop-blur-md border-b border-white/5 py-4 flex flex-col items-center gap-6 text-sm font-semibold uppercase tracking-widest md:hidden">
+            <a href="index.html#about" class="mobile-link hover:text-white transition-colors">About</a>
+            <a href="index.html#projects" class="mobile-link hover:text-white transition-colors">Featured</a>
+            <a href="it.html" class="text-blue-500">IT</a>
+            <a href="media.html" class="text-amber-400 hover:text-amber-300 transition-colors">Media</a>
+            <button onclick="openModal()" class="mobile-link text-white hover:text-blue-400 transition-colors uppercase tracking-widest text-sm font-semibold">Contact</button>
         </div>
     </nav>
 
-    <!-- Content Wrapper -->
-    <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center pt-32 pb-32">
-
-        <!-- 1. IT HERO HEADER -->
-        <header class="w-full px-6 py-20 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
-            <p class="text-blue-500 font-bold tracking-[0.4em] uppercase text-xs md:text-sm mb-6 border-l-2 border-blue-500 pl-4">IT Portfolio</p>
-            <h1 class="text-[10vw] md:text-[6vw] font-black tracking-tighter leading-[0.9] text-white">
-                Engineering <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-700">The Future.</span>
+    <main class="relative z-10 w-full max-w-7xl mx-auto px-6 pt-32 pb-32">
+        
+        <header class="mb-24 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
+            <p class="text-blue-500 font-bold tracking-[0.3em] uppercase text-xs mb-4">IT Portfolio</p>
+            <h1 class="text-5xl md:text-7xl lg:text-[6vw] font-black tracking-tighter leading-[1.1] text-white">
+                Engineering <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">The Future.</span>
             </h1>
         </header>
 
-        <!-- Main Grid Layout -->
-        <div class="w-full px-6 grid lg:grid-cols-12 gap-12 lg:gap-20 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
             
-            <!-- LEFT COLUMN: Education & Experience -->
-            <div class="lg:col-span-5 space-y-16">
+            <div class="lg:col-span-5 space-y-16 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
                 
-                <!-- Education Section -->
                 <section>
                     <h2 class="text-xs text-gray-500 font-bold uppercase tracking-[0.4em] mb-8 border-l-2 border-white/20 pl-4">Education</h2>
-                    
-                    <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/30 transition-colors duration-500 group relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[50px] rounded-full group-hover:bg-blue-500/20 transition-colors"></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Batangas State University - Lipa Campus</h3>
-                        <p class="text-blue-400 font-medium text-sm mb-6">BS in Information Technology<br>Major in Business Analytics</p>
+                    <div class="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 p-8 rounded-2xl hover:border-blue-500/30 transition-all duration-300">
+                        <h3 class="text-xl font-bold text-white mb-2">Batangas State University - Lipa</h3>
+                        <p class="text-blue-500 font-medium text-sm mb-4">BS in Information Technology<br>Major in Business Analytics</p>
                         <div class="flex items-center gap-4 text-xs text-gray-400 font-medium tracking-wide uppercase">
                             <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3 text-gray-500"></i> Exp. July 2027</span>
                             <span class="flex items-center gap-1"><i data-lucide="award" class="w-3 h-3 text-gray-500"></i> GWA: 1.83</span>
@@ -90,177 +94,212 @@
                     </div>
                 </section>
 
-                <!-- Experience Section -->
                 <section>
                     <h2 class="text-xs text-gray-500 font-bold uppercase tracking-[0.4em] mb-8 border-l-2 border-white/20 pl-4">Experience</h2>
                     
                     <div class="space-y-6">
-                        <!-- Scratch Solutions -->
-                        <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] border-l-4 border-l-blue-500 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-500 relative overflow-hidden group">
-                            <div class="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                                <i data-lucide="code-2" class="w-12 h-12 text-blue-500"></i>
-                            </div>
+                        <div class="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 p-8 rounded-2xl hover:border-blue-500/30 transition-all duration-300">
                             <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Jul 2026 - Present</span>
-                            <h3 class="text-xl font-bold text-white">Software Developer</h3>
-                            <p class="text-blue-400 font-medium text-sm mb-6">SCRATCH SOLUTIONS INC</p>
-                            <ul class="space-y-4 text-sm text-gray-400 font-light leading-relaxed">
+                            <h3 class="text-xl font-bold text-white mb-2">Software Developer</h3>
+                            <p class="text-blue-500 font-medium text-sm mb-4">SCRATCH SOLUTIONS INC</p>
+                            <ul class="space-y-4 text-sm text-gray-400 leading-relaxed">
                                 <li class="flex items-start gap-3">
                                     <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0"></i>
-                                    Develops full-stack desktop application using Electron, Node.js, and JavaScript, delivering a centralized and user-friendly dashboard to streamline live-event operations.
+                                    Developing a full-stack desktop application using Electron, Node.js, and JavaScript to centralize live-event operations.
                                 </li>
                                 <li class="flex items-start gap-3">
                                     <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0"></i>
-                                    Engineering seamless hardware-to-software integrations, connecting external micro-controllers and digital cameras to fully automate system workflows and physical user interactions.
+                                    Integrating hardware components, including micro-controllers and digital cameras, to automate workflows and physical interactions.
                                 </li>
                             </ul>
                             <p class="mt-6 text-xs text-gray-500 font-mono tracking-tight">C++ • Python • Node.js • Arduino • JS • HTML/CSS</p>
                         </div>
 
-                        <!-- Lipa City Gov -->
-                        <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/30 transition-all duration-500">
+                        <div class="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 p-8 rounded-2xl hover:border-blue-500/30 transition-all duration-300">
                             <span class="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 mb-4">Aug 2025</span>
-                            <h3 class="text-lg font-bold text-white">Admin Employee (SPES)</h3>
+                            <h3 class="text-lg font-bold text-white mb-2">Admin Employee (SPES)</h3>
                             <p class="text-gray-400 font-medium text-sm mb-4">Lipa City Government</p>
-                            <p class="text-sm text-gray-400 font-light leading-relaxed">
-                                Provided administrative support at the City Government of Lipa City, assisting both the Admin Office and Public Employment Service Office with document processing, records management, and client service coordination.
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Provided administrative support to the Admin Office and Public Employment Service Office. Handled document processing, records management, and client service coordination.
                             </p>
                         </div>
                     </div>
                 </section>
             </div>
 
-            <!-- RIGHT COLUMN: Projects -->
-            <div class="lg:col-span-7 mt-16 lg:mt-0">
+            <div class="lg:col-span-7 mt-16 lg:mt-0 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]">
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
                     <h2 class="text-xs text-gray-500 font-bold uppercase tracking-[0.4em] border-l-2 border-white/20 pl-4">Featured Projects</h2>
                     
-                    <!-- Filters -->
                     <div class="flex flex-wrap gap-3" id="filter-container">
-                        <button class="filter-btn px-5 py-2 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 bg-blue-600 text-white border border-blue-500" data-filter="all">All</button>
-                        <button class="filter-btn px-5 py-2 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 bg-transparent text-gray-400 border border-white/10 hover:border-blue-500/50 hover:text-white" data-filter="web">Web/Mobile</button>
-                        <button class="filter-btn px-5 py-2 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 bg-transparent text-gray-400 border border-white/10 hover:border-blue-500/50 hover:text-white" data-filter="hardware">Hardware</button>
+                        <button class="filter-btn px-4 py-2 rounded bg-blue-600 text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300" data-filter="all">All</button>
+                        <button class="filter-btn px-4 py-2 rounded bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300" data-filter="web">Web/Mobile</button>
+                        <button class="filter-btn px-4 py-2 rounded bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300" data-filter="hardware">Hardware</button>
                     </div>
                 </div>
 
-                <!-- Projects Grid -->
                 <div class="grid sm:grid-cols-2 gap-6" id="projects-grid">
                     
-                    <!-- Shervice -->
-                    <div class="project-card bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 transition-all duration-500 group" data-category="web">
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Shervice</h3>
-                            <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i data-lucide="smartphone" class="w-5 h-5 text-blue-400"></i>
+                    <div class="project-card bg-zinc-900/50 backdrop-blur-md border border-zinc-800 p-8 rounded-2xl hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] transition-all duration-300 group" data-category="web">
+                        <a href="https://github.com/Seanski29/Shervice" target="_blank" class="block h-full">
+                            <div class="flex justify-between items-start mb-6">
+                                <h3 class="text-2xl font-bold text-white group-hover:text-blue-500 transition-colors">Shervice</h3>
+                                <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i data-lucide="smartphone" class="w-5 h-5 text-blue-500"></i>
+                                </div>
                             </div>
-                        </div>
-                        <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">Dec 2026 • FrontEnd UI/UX</p>
-                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-8">
-                            Spearheaded a data-driven transport management system to modernize fleet operations for GT Lantin Car Rentals. Designed the user interface and managed project workflows to monitor driver punctuality, manage fleet attendance records, and generate trend-based data analytics.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Flutter</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Node.js</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Python</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Supabase</span>
-                        </div>
+                            <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">Dec 2026 • FrontEnd UI/UX</p>
+                            <p class="text-sm text-gray-400 leading-relaxed mb-8">
+                                Developed a transport management system for GT Lantin Car Rentals to optimize fleet operations. Designed the user interface and implemented features to track driver attendance, monitor punctuality, and generate data-driven analytics.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Flutter</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Node.js</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Python</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Supabase</span>
+                            </div>
+                        </a>
                     </div>
 
-                    <!-- Flik -->
-                    <div class="project-card bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 transition-all duration-500 group" data-category="hardware">
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Flik-70s Photobooth</h3>
-                            <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i data-lucide="camera" class="w-5 h-5 text-blue-400"></i>
+                    <div class="project-card bg-zinc-900/50 backdrop-blur-md border border-zinc-800 p-8 rounded-2xl hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] transition-all duration-300 group" data-category="hardware">
+                        <a href="https://github.com/Seanski29/Flik-70sPhotobooth" target="_blank" class="block h-full">
+                            <div class="flex justify-between items-start mb-6">
+                                <h3 class="text-2xl font-bold text-white group-hover:text-blue-500 transition-colors">Flik-70s</h3>
+                                <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i data-lucide="camera" class="w-5 h-5 text-blue-500"></i>
+                                </div>
                             </div>
-                        </div>
-                        <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">Jul 2026 • Lead Developer</p>
-                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-8">
-                            Engineered a 70s-inspired vintage photobooth from the ground up, integrating a custom Arduino-based hardware control layer for physical components. Built a streamlined, responsive operator dashboard using Electron to facilitate automated event management.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Arduino</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Electron</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">JS/HTML/CSS</span>
-                        </div>
+                            <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">Jul 2026 • Lead Developer</p>
+                            <p class="text-sm text-gray-400 leading-relaxed mb-8">
+                                Built a vintage-style photobooth integrating an Arduino-based hardware control layer. Developed a responsive operator dashboard using Electron for automated event management.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Arduino</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Electron</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">JS/HTML/CSS</span>
+                            </div>
+                        </a>
                     </div>
 
-                    <!-- ClearAir LIDAR -->
-                    <div class="project-card bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 transition-all duration-500 group" data-category="hardware">
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">ClearAir Turbulence</h3>
-                            <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i data-lucide="plane" class="w-5 h-5 text-blue-400"></i>
+                    <div class="project-card bg-zinc-900/50 backdrop-blur-md border border-zinc-800 p-8 rounded-2xl hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] transition-all duration-300 group" data-category="hardware">
+                        <a href="https://github.com/Seanski29/ClearAirTurblence-LIDAR" target="_blank" class="block h-full">
+                            <div class="flex justify-between items-start mb-6">
+                                <h3 class="text-2xl font-bold text-white group-hover:text-blue-500 transition-colors">ClearAir LIDAR</h3>
+                                <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i data-lucide="plane" class="w-5 h-5 text-blue-500"></i>
+                                </div>
                             </div>
-                        </div>
-                        <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">May 2026 • Sole Programmer</p>
-                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-8">
-                            Programmed the entirety of a LIDAR-based avionics system, utilizing an Arduino Mega for precise laser backscatter analysis. Integrated a custom K-Nearest Neighbors (KNN) machine learning algorithm in C++ to classify atmospheric data and detect clear air turbulence.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">C++ / C</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Arduino Mega</span>
-                        </div>
+                            <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">May 2026 • Sole Programmer</p>
+                            <p class="text-sm text-gray-400 leading-relaxed mb-8">
+                                Developed a LIDAR-based avionics system using an Arduino Mega for laser backscatter analysis. Integrated a K-Nearest Neighbors (KNN) algorithm in C++ to classify atmospheric data and detect clear air turbulence.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">C++ / C</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Arduino Mega</span>
+                            </div>
+                        </a>
                     </div>
 
-                    <!-- Unitly -->
-                    <div class="project-card bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 transition-all duration-500 group" data-category="web">
+                    <div class="project-card bg-zinc-900/50 backdrop-blur-md border border-zinc-800 p-8 rounded-2xl hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] transition-all duration-300 group" data-category="web">
                         <div class="flex justify-between items-start mb-6">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Unitly</h3>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-500 transition-colors">Unitly</h3>
                             <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i data-lucide="layout-dashboard" class="w-5 h-5 text-blue-400"></i>
+                                <i data-lucide="layout-dashboard" class="w-5 h-5 text-blue-500"></i>
                             </div>
                         </div>
                         <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">Dec 2025 • FrontEnd UI/UX</p>
-                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-8">
-                            Designed the front-end UI/UX and managed project execution for a scalable multi-property management platform. Streamlined landlord-tenant communication by automating complex billing workflows and property tracking into a centralized web interface.
+                        <p class="text-sm text-gray-400 leading-relaxed mb-8">
+                            Designed the front-end interface for a multi-property management platform. Automated billing workflows and centralized property tracking to improve landlord-tenant communication.
                         </p>
                         <div class="flex flex-wrap gap-2 mt-auto">
                             <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">PHP</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Tailwind CSS</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">JavaScript</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Tailwind</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">JS</span>
                         </div>
                     </div>
 
-                    <!-- Radar Tower -->
-                    <div class="project-card bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:-translate-y-2 transition-all duration-500 group sm:col-span-2" data-category="hardware">
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Sentry-360 Radar Tower</h3>
-                            <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i data-lucide="radar" class="w-5 h-5 text-blue-400"></i>
+                    <div class="project-card bg-zinc-900/50 backdrop-blur-md border border-zinc-800 p-8 rounded-2xl hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] transition-all duration-300 group sm:col-span-2" data-category="hardware">
+                        <a href="https://github.com/Seanski29/Sentry-360-Arduino-Radar-Sentry-Tower" target="_blank" class="block h-full">
+                            <div class="flex justify-between items-start mb-6">
+                                <h3 class="text-2xl font-bold text-white group-hover:text-blue-500 transition-colors">Sentry-360 Radar Tower</h3>
+                                <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i data-lucide="radar" class="w-5 h-5 text-blue-500"></i>
+                                </div>
                             </div>
-                        </div>
-                        <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">Dec 2025 • Sole Programmer</p>
-                        <p class="text-sm text-gray-400 font-light leading-relaxed mb-8 max-w-3xl">
-                            Built a 360-degree radar sentry tower by solely writing the Arduino C++ data logging code and Processing 4 Java integration. Developed a real-time visual radar sweep interface to translate physical sensor data into actionable visual metrics.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">C</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Arduino Uno</span>
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Processing 4</span>
-                        </div>
+                            <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">Dec 2025 • Sole Programmer</p>
+                            <p class="text-sm text-gray-400 leading-relaxed mb-8 max-w-3xl">
+                                Constructed a 360-degree radar tower using Arduino C++ and Processing 4 Java. Developed a real-time visual interface to translate physical sensor data into visual metrics.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">C</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Arduino Uno</span>
+                                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 font-mono">Processing 4</span>
+                            </div>
+                        </a>
                     </div>
 
                 </div>
             </div>
         </div>
+    </main>
+
+    <div id="contact-modal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div id="modal-content" class="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-8 max-w-sm w-full mx-6 shadow-2xl transform scale-95 transition-transform duration-300">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h4 class="text-xl font-bold text-white mb-6 tracking-tight">Direct Contact</h4>
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-full flex items-center justify-center text-amber-500">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Mobile Number</p>
+                        <a href="tel:09764362928" class="text-sm text-gray-200 hover:text-amber-400 font-medium transition-colors">09764362928</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-full flex items-center justify-center text-blue-500">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Email Address</p>
+                        <a href="mailto:seanmdelrosraio@gmail.com" class="text-sm text-gray-200 hover:text-blue-400 font-medium transition-colors">seanmdelrosraio@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Scripts -->
     <script>
         lucide.createIcons();
 
-        // --- Custom Pointer Glow (Blue IT Theme) ---
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        mobileMenuBtn.addEventListener('click', () => { mobileNav.classList.toggle('hidden'); });
+
+        // Modal Logic
+        const modal = document.getElementById('contact-modal');
+        const modalContent = document.getElementById('modal-content');
+        function openModal() {
+            modal.classList.remove('pointer-events-none');
+            modal.classList.replace('opacity-0', 'opacity-100');
+            modalContent.classList.replace('scale-95', 'scale-100');
+            mobileNav.classList.add('hidden'); // Close mobile menu if open
+        }
+        function closeModal() {
+            modal.classList.add('pointer-events-none');
+            modal.classList.replace('opacity-100', 'opacity-0');
+            modalContent.classList.replace('scale-100', 'scale-95');
+        }
+
+        // Pointer Glow
         const cursorGlow = document.getElementById('cursor-glow');
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let cursorX = mouseX;
-        let cursorY = mouseY;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
+        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2, cursorX = mouseX, cursorY = mouseY;
+        document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
         function animateCursor() {
             cursorX += (mouseX - cursorX) * 0.1;
             cursorY += (mouseY - cursorY) * 0.1;
@@ -269,32 +308,27 @@
         }
         animateCursor();
 
-        // --- Project Filtering Logic ---
+        // Project Filtering Logic
         const filterButtons = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
-
         const setActiveButton = (clickedBtn) => {
             filterButtons.forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-500');
-                btn.classList.add('bg-transparent', 'text-gray-400', 'border-white/10');
+                btn.classList.remove('bg-blue-600', 'text-white', 'border-transparent');
+                btn.classList.add('bg-zinc-900', 'text-gray-400', 'border-zinc-800');
             });
-            clickedBtn.classList.remove('bg-transparent', 'text-gray-400', 'border-white/10');
-            clickedBtn.classList.add('bg-blue-600', 'text-white', 'border-blue-500');
+            clickedBtn.classList.remove('bg-zinc-900', 'text-gray-400', 'border-zinc-800');
+            clickedBtn.classList.add('bg-blue-600', 'text-white', 'border-transparent');
         };
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 setActiveButton(button);
                 const filterValue = button.getAttribute('data-filter');
-
                 projectCards.forEach(card => {
-                    // Reset animation states before reflowing
                     card.style.opacity = '0';
                     card.style.transform = 'translateY(20px)';
-                    
                     if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
                         card.style.display = 'block';
-                        // Force a reflow to restart CSS transitions
                         void card.offsetWidth;
                         card.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
                         card.style.opacity = '1';
