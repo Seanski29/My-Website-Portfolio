@@ -3,33 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sean Martin Del Rosario | Developer & Designer</title>
+    <title>Sean Martin Del Rosario | IT & Business Analytics</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="icon" type="image/x-icon" href="icon.jpg">
+    <link rel="icon" type="image/x-icon" href="assets/icon.jpg">
     <style>
         ::-webkit-scrollbar { display: none; }
-        body { -ms-overflow-style: none; scrollbar-width: none; background-color: #000; }
+        body { 
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
+            background-color: #09090b; /* zinc-950 */
+        }
+        
+        /* Skills Marquee Animation */
+        .marquee-container {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            gap: 2rem;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        .marquee-content {
+            display: flex;
+            flex-shrink: 0;
+            gap: 2rem;
+            animation: scroll 20s linear infinite;
+        }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(-100% - 2rem)); }
+        }
+        
+        /* Cursor Blinking for Typewriter */
+        .cursor::after {
+            content: '|';
+            animation: blink 1s step-start infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
     </style>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        it: '#080c14',
-                        media: '#16120b',
+                        zinc: { 950: '#09090b' },
+                        primary: '#2563eb', /* Blue 600 */
+                        secondary: '#1e3a8a', /* Dark Blue 900 */
                     },
                     animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                     },
                     keyframes: {
                         fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        scaleIn: {
-                            '0%': { opacity: '0', transform: 'scale(0.8)' },
-                            '100%': { opacity: '1', transform: 'scale(1)' },
                         }
                     }
                 }
@@ -37,237 +65,358 @@
         }
     </script>
 </head>
-<body class="text-white antialiased cursor-default selection:bg-blue-500/30 overflow-x-hidden">
+<body class="text-gray-300 antialiased selection:bg-blue-900/50 selection:text-white overflow-x-hidden font-sans relative">
 
-    <!-- Highly Optimized Cursor Glow -->
-    <div id="cursor-glow" class="fixed top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none mix-blend-screen opacity-30 transition-colors duration-700 z-0 will-change-transform bg-[radial-gradient(circle,rgba(37,99,235,0.4)_0%,transparent_60%)]"></div>
-
-    <!-- FIXED Background Split Layer -->
-    <div class="fixed inset-0 flex w-full h-full z-0 pointer-events-none">
-        <!-- Left IT Panel -->
-        <div id="bg-left" class="w-1/2 h-full bg-it relative transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden will-change-[width]">
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12),transparent_60%)]"></div>
-            <div class="absolute inset-0 opacity-[0.04] text-blue-500 font-mono text-4xl font-bold">
-                <span class="absolute top-[15%] left-[10%] animate-pulse-slow">{}</span>
-                <span class="absolute top-[45%] left-[25%] animate-pulse-slow delay-75">JS</span>
-                <span class="absolute bottom-[25%] left-[15%] animate-pulse-slow delay-150">&lt;/&gt;</span>
-                <span class="absolute top-[70%] left-[8%] animate-pulse-slow delay-300">Arduino</span>
-            </div>
-        </div>
-
-        <!-- Right Media Panel -->
-        <div id="bg-right" class="w-1/2 h-full bg-media relative transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden will-change-[width]">
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.1),transparent_60%)]"></div>
-            <div class="absolute inset-0 opacity-[0.04] text-amber-500 font-sans text-4xl font-bold tracking-widest">
-                <span class="absolute top-[20%] right-[15%] animate-pulse-slow">REC</span>
-                <span class="absolute top-[50%] right-[30%] animate-pulse-slow delay-75">ISO</span>
-                <span class="absolute bottom-[30%] right-[10%] animate-pulse-slow delay-150">24fps</span>
-                <span class="absolute top-[75%] right-[20%] animate-pulse-slow delay-300">Ps</span>
-            </div>
-        </div>
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-800/10 rounded-full blur-[100px]"></div>
     </div>
 
-    <!-- Subtle Premium Grid -->
-    <div class="fixed inset-0 z-0 pointer-events-none" style="background-image: linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px); background-size: 64px 64px;"></div>
+    <nav class="fixed top-0 w-full z-50 bg-zinc-950/70 backdrop-blur-lg border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="font-bold text-lg tracking-widest text-white hover:text-blue-500 transition-colors">SMDR.</a>
+            
+            <div class="hidden md:flex gap-8 items-center text-xs font-semibold uppercase tracking-widest">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#projects" class="hover:text-white transition-colors">Featured</a>
+                <div class="h-4 w-px bg-white/20"></div> <a href="it.html" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1">IT</a>
+                <a href="media.html" class="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1">Media</a>
+                <a href="#contact" class="text-white border border-white/20 px-4 py-2 rounded hover:bg-white/10 transition-colors ml-4">Contact</a>
+            </div>
 
-    <!-- Top Navigation -->
-    <nav class="fixed top-0 w-full px-8 md:px-16 py-8 flex justify-between items-center z-50 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards] mix-blend-difference">
-        <div class="font-bold text-xl md:text-2xl tracking-widest text-white cursor-pointer hover:text-gray-300 transition-colors">SMDR</div>
-        <div class="flex gap-8 text-xs font-bold text-white uppercase tracking-[0.2em]">
-            <a href="https://github.com/seandelrosario" target="_blank" class="hover:text-gray-400 transition-colors flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4"/><path d="M9 18c-4.5 1.6-5-2.3-5-2.3"/></svg>
-                GITHUB
-            </a>
-            <a href="https://linkedin.com/in/seandelrosario/" target="_blank" class="hover:text-gray-400 transition-colors flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                LINKEDIN
-            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-nav" class="hidden absolute top-full left-0 w-full bg-zinc-900/95 backdrop-blur-md border-b border-white/5 py-4 flex flex-col items-center gap-6 text-sm font-semibold uppercase tracking-widest md:hidden">
+            <a href="#about" class="mobile-link hover:text-white transition-colors">About</a>
+            <a href="#projects" class="mobile-link hover:text-white transition-colors">Featured</a>
+            <a href="it.html" class="text-blue-400 hover:text-blue-300 transition-colors">IT</a>
+            <a href="media.html" class="text-amber-400 hover:text-amber-300 transition-colors">Media</a>
+            <a href="#contact" class="mobile-link text-white hover:text-blue-400 transition-colors">Contact</a>
         </div>
     </nav>
 
-    <!-- Content Wrapper -->
     <div class="relative z-10 w-full flex flex-col items-center">
 
-        <!-- 1. HERO SECTION (Reorganized layout) -->
-        <section class="min-h-screen w-full flex flex-col items-center justify-center text-center px-6 pt-32 pb-16 relative overflow-hidden z-10">
+        <section id="hero" class="min-h-screen w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-6 pt-32 pb-16">
             
-            <!-- Massive Editorial Name (Top, with breathing room) -->
-            <h1 class="text-[12vw] md:text-[8vw] font-black tracking-tighter leading-[0.85] text-white opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards] drop-shadow-2xl z-20">
-                Sean Martin<br>Del Rosario
-            </h1>
+            <div class="flex flex-col items-start justify-center order-2 lg:order-1 z-10">
+                <p class="text-blue-500 font-semibold tracking-[0.2em] uppercase text-xs mb-6 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
+                    BSU Lipa • 4th Year IT Student
+                </p>
+                <h1 class="text-5xl md:text-7xl lg:text-[5.5vw] font-black tracking-tighter leading-[1.1] text-white opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards] mb-6">
+                    Sean Martin <br />
+                    Del Rosario
+                </h1>
+                
+                <div class="text-xl md:text-3xl text-gray-400 font-light opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards] h-10">
+                    I focus on <span id="typewriter" class="text-white font-medium cursor"></span>
+                </div>
 
-            <!-- Faded Portrait (Centered directly below the name) -->
-            <div class="relative w-64 h-64 md:w-[28rem] md:h-[28rem] mt-8 mb-4 opacity-0 animate-[scaleIn_1.5s_cubic-bezier(0.16,1,0.3,1)_0.4s_forwards] pointer-events-none z-10 flex items-center justify-center">
-                <img src="assets/photo.png" alt="Sean Martin Del Rosario" class="w-full h-full object-contain filter contrast-125 saturate-[0.8] opacity-60 mix-blend-screen transition-all duration-1000" style="-webkit-mask-image: radial-gradient(circle, black 35%, transparent 70%); mask-image: radial-gradient(circle, black 35%, transparent 70%);">
+                <div class="mt-12 flex flex-col sm:flex-row gap-4 w-full sm:w-auto opacity-0 animate-[fadeInUp_0.8s_ease-out_0.8s_forwards]">
+                    <a href="it.html" class="px-8 py-4 bg-blue-500/10 border border-blue-500/30 hover:bg-blue-600 hover:text-white rounded-lg text-blue-400 text-sm font-semibold tracking-[0.1em] transition-all duration-300 flex items-center justify-center gap-3 group">
+                        IT PORTFOLIO <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="media.html" class="px-8 py-4 bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500 hover:text-white rounded-lg text-amber-500 text-sm font-semibold tracking-[0.1em] transition-all duration-300 flex items-center justify-center gap-3 group">
+                        MEDIA PORTFOLIO <i data-lucide="play" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+                    </a>
+                </div>
             </div>
 
-            <!-- Elegant Subtitle -->
-            <div class="h-8 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards] z-20">
-                <p id="role-text" class="text-xl md:text-2xl text-gray-400 font-light transition-colors duration-500 tracking-wide drop-shadow-lg">Software Engineer</p>
+            <div class="relative w-full max-w-md mx-auto lg:ml-auto aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden order-1 lg:order-2 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
+                <img src="photo.png" alt="Sean Martin Del Rosario" class="w-full h-full object-cover shadow-2xl opacity-90 hover:opacity-100 transition-opacity duration-500 border border-white/10 rounded-2xl">
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-80 pointer-events-none rounded-2xl"></div>
             </div>
 
-            <!-- Refined Buttons -->
-            <div class="mt-8 flex gap-4 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.8s_forwards] z-20">
-                <a href="it.html" class="px-8 py-4 bg-blue-500/10 backdrop-blur-md border border-blue-500/30 hover:bg-blue-500 hover:text-white rounded-full text-blue-400 text-xs font-bold tracking-[0.2em] transition-all duration-300 flex items-center gap-3 group">
-                    IT PORTFOLIO <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                </a>
-                <a href="media.html" class="px-8 py-4 bg-amber-500/10 backdrop-blur-md border border-amber-500/30 hover:bg-amber-500 hover:text-white rounded-full text-amber-500 text-xs font-bold tracking-[0.2em] transition-all duration-300 flex items-center gap-3 group">
-                    MEDIA PORTFOLIO <i data-lucide="play" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
-                </a>
+        </section>
+
+        <section id="about" class="w-full max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-xs text-blue-500 font-bold uppercase tracking-[0.3em] mb-4">Background</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">Data and Development</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        I am a 4th-year Information Technology student at Batangas State University (Lipa Campus), majoring in Business Analytics. My core objective is to build practical software solutions and analyze data to support strategic business decisions.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        My experience covers full-stack web development, hardware integration, and multimedia design. I prioritize delivering clean, functional, and user-centered products that solve real-world problems efficiently.
+                    </p>
+                </div>
+                
+                <div class="relative w-full aspect-square md:aspect-video lg:aspect-square bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.1),transparent_60%)]"></div>
+                    <i data-lucide="code-2" class="w-24 h-24 text-white/20"></i>
+                </div>
             </div>
-            
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3 text-gray-500 opacity-0 animate-[fadeInUp_0.8s_ease-out_1.2s_forwards]">
-                <div class="w-[1px] h-12 bg-gradient-to-b from-gray-500 to-transparent"></div>
+
+            <div class="mt-24 pt-12 border-t border-white/5">
+                <p class="text-center text-xs text-gray-500 uppercase tracking-widest font-semibold mb-8">Technical Proficiencies</p>
+                <div class="marquee-container">
+                    <div class="marquee-content items-center">
+                        <span class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-full text-sm font-medium">Business Analytics</span>
+                        <span class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-full text-sm font-medium">Front-End Development</span>
+                        <span class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-full text-sm font-medium">Arduino Integration</span>
+                        <span class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-full text-sm font-medium">UI/UX Design</span>
+                        <span class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-full text-sm font-medium">Multimedia Editing</span>
+                        <span class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-full text-sm font-medium">Data Visualization</span>
+                        <span class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-full text-sm font-medium">Business Analytics</span>
+                        <span class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-full text-sm font-medium">Front-End Development</span>
+                        <span class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-full text-sm font-medium">Arduino Integration</span>
+                        <span class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-full text-sm font-medium">UI/UX Design</span>
+                        <span class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-full text-sm font-medium">Multimedia Editing</span>
+                        <span class="px-6 py-3 bg-zinc-900 border border-zinc-800 rounded-full text-sm font-medium">Data Visualization</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- 2. ABOUT SECTION -->
-        <section id="about" class="min-h-[80vh] w-full max-w-6xl mx-auto px-6 py-32 flex flex-col justify-center relative z-10">
-            <h2 class="text-xs text-gray-500 font-bold uppercase tracking-[0.4em] mb-6 border-l-2 border-blue-500 pl-4">About Me</h2>
+        <section id="projects" class="w-full max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-xs text-blue-500 font-bold uppercase tracking-[0.3em] mb-2">Portfolio</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Featured IT Projects</h3>
+                </div>
+                <a href="it.html" class="hidden md:flex items-center gap-2 text-sm font-semibold text-gray-400 hover:text-white transition-colors">
+                    See All Projects <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
             
-            <p class="text-3xl md:text-5xl lg:text-[4vw] font-light leading-[1.2] tracking-tight text-gray-200">
-                I bridge the gap between <span class="text-blue-400 font-medium">technical logic</span> and <span class="text-amber-400 font-medium">visual aesthetics</span>. 
-            </p>
-            <p class="text-xl md:text-2xl text-gray-400 font-light mt-8 max-w-4xl leading-relaxed">
-                As an Information Technology student majoring in Business Analytics, my work spans from engineering seamless hardware integrations with Arduino, to architecting responsive front-end frameworks, to editing high-retention multimedia content.
-            </p>
-            
-            <!-- Elegant Pill Tags -->
-            <div class="flex flex-wrap gap-4 mt-16">
-                <span class="px-6 py-3 rounded-full border border-white/10 backdrop-blur-sm bg-black/20 text-sm font-medium text-gray-300">Front-End UI/UX</span>
-                <span class="px-6 py-3 rounded-full border border-white/10 backdrop-blur-sm bg-black/20 text-sm font-medium text-gray-300">Hardware Integration</span>
-                <span class="px-6 py-3 rounded-full border border-white/10 backdrop-blur-sm bg-black/20 text-sm font-medium text-gray-300">Business Analytics</span>
-                <span class="px-6 py-3 rounded-full border border-white/10 backdrop-blur-sm bg-black/20 text-sm font-medium text-gray-300">Multimedia Arts</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="https://github.com/Seanski29/Shervice" target="_blank" class="group block md:col-span-2 bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl p-8 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] transition-all duration-300 relative overflow-hidden">
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500/20 group-hover:text-blue-400 transition-colors">
+                                <i data-lucide="briefcase" class="w-5 h-5"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-3">Shervice</h4>
+                            <p class="text-gray-400 leading-relaxed max-w-md">
+                                A service management application designed to streamline operations, track requests, and improve overall workflow efficiency within organizations.
+                            </p>
+                        </div>
+                        <div class="mt-8 flex items-center text-sm font-semibold text-blue-500 group-hover:text-blue-400">
+                            View Repository <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/Seanski29/Flik-70sPhotobooth" target="_blank" class="group block md:col-span-1 bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl p-8 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] transition-all duration-300 relative overflow-hidden">
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500/20 group-hover:text-blue-400 transition-colors">
+                                <i data-lucide="camera" class="w-5 h-5"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3">Flik</h4>
+                            <p class="text-gray-400 leading-relaxed text-sm">
+                                A software application that replicates a 1970s photobooth, featuring custom camera filters and simplified photo exporting.
+                            </p>
+                        </div>
+                        <div class="mt-8 flex items-center text-sm font-semibold text-blue-500 group-hover:text-blue-400">
+                            View Repository <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/Seanski29/ClearAirTurblence-LIDAR" target="_blank" class="group block md:col-span-1 bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl p-8 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] transition-all duration-300 relative overflow-hidden">
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500/20 group-hover:text-blue-400 transition-colors">
+                                <i data-lucide="plane" class="w-5 h-5"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3">ClearAir Turb</h4>
+                            <p class="text-gray-400 leading-relaxed text-sm">
+                                A simulated LIDAR-based system designed to detect clear air turbulence, aimed at enhancing flight monitoring and safety.
+                            </p>
+                        </div>
+                        <div class="mt-8 flex items-center text-sm font-semibold text-blue-500 group-hover:text-blue-400">
+                            View Repository <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/Seanski29/Sentry-360-Arduino-Radar-Sentry-Tower" target="_blank" class="group block md:col-span-2 bg-zinc-900/50 backdrop-blur-md border border-zinc-800 rounded-2xl p-8 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] transition-all duration-300 relative overflow-hidden">
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500/20 group-hover:text-blue-400 transition-colors">
+                                <i data-lucide="radar" class="w-5 h-5"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-3">Sentry 360</h4>
+                            <p class="text-gray-400 leading-relaxed max-w-md">
+                                A hardware-software integration project using Arduino components to construct a radar tower capable of 360-degree monitoring and object detection.
+                            </p>
+                        </div>
+                        <div class="mt-8 flex items-center text-sm font-semibold text-blue-500 group-hover:text-blue-400">
+                            View Repository <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="mt-8 flex justify-center md:hidden">
+                <a href="it.html" class="px-6 py-3 bg-white/5 border border-white/10 rounded-lg text-sm font-semibold text-white hover:bg-white/10 transition-colors flex items-center gap-2">
+                    View Full IT Portfolio <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
             </div>
         </section>
 
-        <!-- 3. CONTACT SECTION -->
-        <section id="contact" class="min-h-screen w-full flex flex-col items-center justify-center px-6 text-center relative overflow-hidden z-10">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none"></div>
-
-            <h2 class="text-[10vw] md:text-[8vw] font-black tracking-tighter leading-none text-white z-10 mb-16">
-                Let's Connect.
-            </h2>
-            
-            <!-- Sleek Links Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 z-10 text-left">
-                
-                <a href="mailto:seanmdelrosrario@gmail.com" class="text-xl md:text-3xl font-light text-gray-400 hover:text-white transition-colors flex items-center gap-5 group">
-                    <div class="p-4 rounded-full bg-white/5 border border-white/10 group-hover:border-blue-500 transition-colors">
-                        <i data-lucide="mail" class="w-6 h-6"></i>
-                    </div>
-                    Email Me
-                </a>
-                
-                <a href="tel:+639764362928" class="text-xl md:text-3xl font-light text-gray-400 hover:text-white transition-colors flex items-center gap-5 group">
-                    <div class="p-4 rounded-full bg-white/5 border border-white/10 group-hover:border-amber-500 transition-colors">
-                        <i data-lucide="phone" class="w-6 h-6"></i>
-                    </div>
-                    Call Me
-                </a>
-
-                <a href="https://linkedin.com/in/seandelrosario/" target="_blank" class="text-xl md:text-3xl font-light text-gray-400 hover:text-white transition-colors flex items-center gap-5 group">
-                    <div class="p-4 rounded-full bg-white/5 border border-white/10 group-hover:border-blue-500 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                    </div>
-                    LinkedIn
-                </a>
-                
-                <a href="https://github.com/seandelrosario" target="_blank" class="text-xl md:text-3xl font-light text-gray-400 hover:text-white transition-colors flex items-center gap-5 group">
-                    <div class="p-4 rounded-full bg-white/5 border border-white/10 group-hover:border-amber-500 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4"/><path d="M9 18c-4.5 1.6-5-2.3-5-2.3"/></svg>
-                    </div>
-                    GitHub
-                </a>
-
+        <section id="contact" class="w-full max-w-4xl mx-auto px-6 py-24 border-t border-white/5 mb-12">
+            <div class="text-center mb-16">
+                <h2 class="text-xs text-blue-500 font-bold uppercase tracking-[0.3em] mb-2">Get In Touch</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Let's Connect</h3>
+                <p class="text-gray-400 mt-4 max-w-xl mx-auto">Feel free to reach out for collaborations, project inquiries, or employment opportunities.</p>
             </div>
-            
-            <p class="absolute bottom-10 text-gray-600 text-xs tracking-[0.2em] font-bold uppercase">&copy; <script>document.write(new Date().getFullYear())</script> SMDR. Based in Lipa City.</p>
+
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+                
+                <button onclick="openModal()" class="flex items-center gap-3 px-6 py-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/30 hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="text-gray-400 group-hover:text-blue-400 transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-white tracking-widest uppercase">Email</span>
+                </button>
+
+                <button onclick="openModal()" class="flex items-center gap-3 px-6 py-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/30 hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="text-gray-400 group-hover:text-amber-400 transition-colors">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-white tracking-widest uppercase">Mobile</span>
+                </button>
+
+                <a href="https://linkedin.com/in/seandelrosario/" target="_blank" class="flex items-center gap-3 px-6 py-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/30 hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="text-gray-400 group-hover:text-blue-500 transition-colors">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-white tracking-widest uppercase">LinkedIn</span>
+                </a>
+
+                <a href="https://github.com/seandelrosario" target="_blank" class="flex items-center gap-3 px-6 py-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/30 hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="text-gray-400 group-hover:text-white transition-colors">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-white tracking-widest uppercase">GitHub</span>
+                </a>
+            </div>
         </section>
 
+        <footer class="w-full text-center py-8 border-t border-white/5 text-xs text-gray-500 font-semibold uppercase tracking-widest">
+            &copy; <span id="year"></span> Sean Martin Del Rosario. All Rights Reserved.
+        </footer>
     </div>
 
-    <!-- Scripts -->
+    <div id="contact-modal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        
+        <div id="modal-content" class="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-8 max-w-sm w-full mx-6 shadow-2xl transform scale-95 transition-transform duration-300">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            
+            <h4 class="text-xl font-bold text-white mb-6 tracking-tight">Direct Contact</h4>
+            
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-full flex items-center justify-center text-amber-500">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Mobile Number</p>
+                        <a href="tel:09764362928" class="text-sm text-gray-200 hover:text-amber-400 font-medium transition-colors">09764362928</a>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-full flex items-center justify-center text-blue-500">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Email Address</p>
+                        <a href="mailto:seanmdelrosraio@gmail.com" class="text-sm text-gray-200 hover:text-blue-400 font-medium transition-colors">seanmdelrosraio@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // 1. Initialize Icons
         lucide.createIcons();
 
-        // --- Hardware-Accelerated Split Screen & Cursor Follower ---
-        const bgLeft = document.getElementById('bg-left');
-        const bgRight = document.getElementById('bg-right');
-        const cursorGlow = document.getElementById('cursor-glow');
-        
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let cursorX = mouseX;
-        let cursorY = mouseY;
-        let currentSide = 'none';
+        // 2. Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+        // 3. Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-            const width = window.innerWidth;
-            
-            if (mouseX < width / 2) {
-                if (currentSide !== 'left') {
-                    bgLeft.style.width = '60%';
-                    bgRight.style.width = '40%';
-                    cursorGlow.classList.remove('bg-[radial-gradient(circle,rgba(245,158,11,0.4)_0%,transparent_60%)]');
-                    cursorGlow.classList.add('bg-[radial-gradient(circle,rgba(37,99,235,0.4)_0%,transparent_60%)]');
-                    currentSide = 'left';
-                }
-            } else {
-                if (currentSide !== 'right') {
-                    bgLeft.style.width = '40%';
-                    bgRight.style.width = '60%';
-                    cursorGlow.classList.remove('bg-[radial-gradient(circle,rgba(37,99,235,0.4)_0%,transparent_60%)]');
-                    cursorGlow.classList.add('bg-[radial-gradient(circle,rgba(245,158,11,0.4)_0%,transparent_60%)]');
-                    currentSide = 'right';
-                }
-            }
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('hidden');
         });
 
-        document.addEventListener('mouseleave', () => {
-            bgLeft.style.width = '50%';
-            bgRight.style.width = '50%';
-            currentSide = 'none';
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.add('hidden');
+            });
         });
 
-        function animateCursor() {
-            cursorX += (mouseX - cursorX) * 0.1;
-            cursorY += (mouseY - cursorY) * 0.1;
-            cursorGlow.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate3d(-50%, -50%, 0)`;
-            requestAnimationFrame(animateCursor);
+        // 4. Modal Logic
+        const modal = document.getElementById('contact-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        function openModal() {
+            modal.classList.remove('pointer-events-none');
+            modal.classList.replace('opacity-0', 'opacity-100');
+            modalContent.classList.replace('scale-95', 'scale-100');
         }
-        animateCursor();
 
-        // --- Elegant Rotating Subtitle ---
-        const roles = [
-            { text: "Software Engineer", side: "it" },
-            { text: "Creative Media Designer", side: "media" },
-            { text: "UI/UX Developer", side: "it" },
-            { text: "Multimedia Editor", side: "media" }
-        ];
-        let roleIndex = 0;
-        const roleText = document.getElementById('role-text');
+        function closeModal() {
+            modal.classList.add('pointer-events-none');
+            modal.classList.replace('opacity-100', 'opacity-0');
+            modalContent.classList.replace('scale-100', 'scale-95');
+        }
 
-        setInterval(() => {
-            roleText.style.opacity = '0';
-            
-            setTimeout(() => {
-                roleIndex = (roleIndex + 1) % roles.length;
-                roleText.textContent = roles[roleIndex].text;
-                
-                if (roles[roleIndex].side === "media") {
-                    roleText.className = "text-xl md:text-2xl text-amber-400 font-light transition-colors duration-500 tracking-wide drop-shadow-lg";
+        // 5. Typewriter Effect Logic
+        const words = ["Business Analytics.", "Front-End Development.", "Hardware Integration.", "UI/UX Design."];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typewriter').innerHTML += word.shift();
                 } else {
-                    roleText.className = "text-xl md:text-2xl text-blue-400 font-light transition-colors duration-500 tracking-wide drop-shadow-lg";
+                    setTimeout(deletingEffect, 2000);
+                    return false;
                 }
-                
-                roleText.style.opacity = '1';
-            }, 500); 
-        }, 3000);
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typewriter').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0; // Loop back to start
+                    }
+                    setTimeout(typingEffect, 500);
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+
+        // Start typing effect after initial fade-in delay
+        setTimeout(typingEffect, 1000);
     </script>
 </body>
 </html>
